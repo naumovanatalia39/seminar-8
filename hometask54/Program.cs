@@ -1,7 +1,7 @@
 ﻿// Задайте двумерный массив. 
 // Напишите программу, которая упорядочит по возрастанию элементы каждой строки двумерного массива.
 
-int[,] GetRandomMatrix(int rows, int columns, int leftRange = 0, int rightRange = 9)
+int[,] GetRandomMatrix(int rows, int columns, int leftRange = 0, int rightRange = 10)
 {
     int[,] matr = new int[rows, columns];
     for (int i = 0; i < matr.GetLength(0); i++)
@@ -31,24 +31,24 @@ void PrintMatrix(int[,] matr)
 
 int[,] matrix = GetRandomMatrix(3, 4);
 PrintMatrix(matrix);
-Console.WriteLine();
+
 for (int i = 0; i < matrix.GetLength(0); i++)
 {
     for (int j = 0; j < matrix.GetLength(1) - 1; j++)
     {
         int minPosition = j;
-        for (int t = j + 1; t < matrix.GetLength(1); j++)
+        for (int k = j + 1; k < matrix.GetLength(1); k++)
         {
-            if (matrix[i, t] < matrix[i, minPosition])
+            if (matrix[i, k] < matrix[i, minPosition])
             {
-                minPosition = t;
+                minPosition = k;
             }
         }
         int temp = matrix[i, j];
         matrix[i, j] = matrix[i, minPosition];
         matrix[i, minPosition] = temp;
-       
     }
 
 }
+Console.WriteLine();
 PrintMatrix(matrix);
